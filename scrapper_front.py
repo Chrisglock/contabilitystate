@@ -11,7 +11,7 @@ from scrapper_back import *
    
 #print(productos_listos)   
  
-class Ventana(QMainWindow):    
+class Scrap(QWidget):    
     def __init__(self):
         super().__init__()
         self.ui = uic.loadUi('scrapper_ventana.ui')
@@ -19,7 +19,7 @@ class Ventana(QMainWindow):
         self.ui.setWindowFlags(Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
         #self.ui.setWindowFlags(Qt.FramelessWindowHint)
         
-        self.ui.show()
+        #self.ui.show()
         self.ui.filtrar.clicked.connect(self.filtrar)
         
         self.e_carga()
@@ -59,5 +59,5 @@ class Ventana(QMainWindow):
 
 if __name__ == "__main__":
     app = QtWidgets.QApplication(sys.argv)
-    ventana = Ventana()
+    scrap = Scrap()
     sys.exit(app.exec_())

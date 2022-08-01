@@ -12,7 +12,7 @@ from tkinter.filedialog import askdirectory
 from añadir import *
 from addventa import *
 
-class VentanaCYV(QMainWindow):    
+class CYV(QMainWindow):    
     def __init__(self):
         super().__init__()
         self.ui = uic.loadUi('gestioncyv.ui')
@@ -20,7 +20,7 @@ class VentanaCYV(QMainWindow):
         self.ui.setWindowFlags(Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
         #self.ui.setWindowFlags(Qt.FramelessWindowHint)
 
-        self.ui.show()
+        #self.ui.show()
         self.añadir = VentanaAdd()
         self.ui.exam.clicked.connect(self.exam)
         self.ui.add.clicked.connect(self.add)
@@ -46,7 +46,7 @@ class VentanaCYV(QMainWindow):
         self.movie.stop()
         self.close
 
-if __name__ == "__main__":
-    app = QtWidgets.QApplication(sys.argv)
-    ventana = VentanaCYV()
-    sys.exit(app.exec_())
+#if __name__ == "__main__":
+    #app = QtWidgets.QApplication(sys.argv)
+    #ventana = VentanaCYV()
+    #sys.exit(app.exec_())
