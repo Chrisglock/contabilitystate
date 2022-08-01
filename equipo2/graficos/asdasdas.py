@@ -5,10 +5,13 @@ from PyQt5.QtGui import QMovie , QPen
 from importlib.resources import path
 from PyQt5.QtWidgets import QApplication, QMainWindow ,QWidget , QVBoxLayout
 from PyQt5.QtChart import QChart, QChartView, QBarSet, QPercentBarSeries, QBarCategoryAxis,QPieSeries , QLineSeries
-
+from segunda import *
 import sys
-
- 
+import pandas as pd
+import openpyxl
+excel_data = pd.read_excel('ventas.xlsx')
+data = pd.DataFrame(excel_data, columns=['Producto', 'Stock', 'Vxsemana', 'Vxmes','Vxaño'])
+print("The content of the file is:\n", data.iat[0,0])
 class Ventana(QMainWindow):    
     def __init__(self):
         super().__init__()
@@ -17,13 +20,18 @@ class Ventana(QMainWindow):
         self.ui.setWindowFlags(Qt.WindowCloseButtonHint | Qt.WindowMinimizeButtonHint)
         self.ui.der.clicked.connect(self.botonder)
         self.ui.izq.clicked.connect(self.botonizq)
-        
+        self.ui.boton.clicked.connect(self.abrirotra)
+        self.ui.show()
+        self.win = SegVentana()
 
         
-        self.ui.show()
+        
         self.indice = 0
         
-    
+    def abrirotra(self):
+        self.win.ui.show()
+        
+        
     def barras(self):
         #create barseries
         set0 = QBarSet("Parwiz")
@@ -57,7 +65,7 @@ class Ventana(QMainWindow):
  
  
         #create axis for the chart
-        categories = ["Jan", "Feb", "Mar", "Apr", "May", "Jun"]
+        categories = ["Jan", "Feb", "Mar", "Apr", "May", "Jun","asd"]
  
         axis = QBarCategoryAxis()
         axis.append(categories)
